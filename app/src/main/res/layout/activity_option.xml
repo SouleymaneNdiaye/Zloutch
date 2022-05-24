@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".OptionActivity"
+  android:orientation="vertical"
+  android:id="@+id/option_parent_layout">
+
+  <TextView
+    android:id="@+id/option_textview_greeting"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="8dp"
+    android:text="Bienvenue dans les options de Zloutch"
+    tools:layout_editor_absoluteX="125dp"
+    tools:layout_editor_absoluteY="16dp"
+    tools:ignore="MissingConstraints" />
+
+  <EditText
+    android:id="@+id/option_edittext_name_player_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:hint="Saisissez le nom du joueur 1"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <EditText
+    android:id="@+id/option_edittext_name_player_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:hint="Saisissez le nom du joueur 2"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <EditText
+    android:id="@+id/option_edittext_name_player_3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:hint="Saisissez le nom du joueur 3"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <EditText
+    android:id="@+id/option_edittext_name_player_4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:hint="Saisissez le nom du joueur 4"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <EditText
+    android:id="@+id/option_edittext_name_player_5"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:hint="Saisissez le nom du joueur 5"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <EditText
+    android:id="@+id/option_edittext_name_player_6"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:hint="Saisissez le nom du joueur 6"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <Button
+    android:id="@+id/option_button_play"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:text="C'est parti"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="341dp"
+    tools:ignore="MissingConstraints" />
+
+
+</LinearLayout>

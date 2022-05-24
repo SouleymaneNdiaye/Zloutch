@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".GameActivity"
+  android:orientation="vertical"
+  android:id="@+id/option_parent_layout">
+
+  <TextView
+    android:id="@+id/game_textview_greeting"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="8dp"
+    android:text="Bienvenue dans le jeu de Zloutch"
+    tools:layout_editor_absoluteX="125dp"
+    tools:layout_editor_absoluteY="16dp"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/game_textview_who_play"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="8dp"
+    android:text="Bienvenue dans le jeu"
+    tools:ignore="MissingConstraints" />
+
+  <Button
+    android:id="@+id/game_button_option"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:text="Données du jeux"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="341dp"
+    tools:ignore="MissingConstraints" />
+
+
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".GameActivity"
+    android:orientation="vertical"
+    android:id="@+id/option_parent_vertical_layout_2">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_playable_layout_1">
+      <TextView
+        android:id="@+id/game_name_playable_dice1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 1:"
+        tools:ignore="MissingConstraints" />
+    <Button
+      android:id="@+id/game_playable_dice1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="8dp"
+      android:text="1"
+      tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_playable_layout_2">
+      <TextView
+        android:id="@+id/game_name_playable_dice_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 2:"
+        tools:ignore="MissingConstraints" />
+      <Button
+        android:id="@+id/game_playable_dice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_playable_layout_3">
+      <TextView
+        android:id="@+id/game_name_playable_dice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 3:"
+        tools:ignore="MissingConstraints" />
+      <Button
+        android:id="@+id/game_playable_dice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_playable_layout_4">
+      <TextView
+        android:id="@+id/game_name_playable_dice4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 4:"
+        tools:ignore="MissingConstraints" />
+      <Button
+        android:id="@+id/game_playable_dice4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_playable_layout_5">
+      <TextView
+        android:id="@+id/game_name_playable_dice5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 5:"
+        tools:ignore="MissingConstrains" />
+      <Button
+        android:id="@+id/game_playable_dice5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+  </LinearLayout>
+  <Button
+    android:id="@+id/game_button_throw"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:text="Lancer les dés"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="341dp"
+    tools:ignore="MissingConstraints" />
+  <Button
+    android:id="@+id/game_button_keep"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:text="Garder les 1 et les 5"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="341dp"
+    tools:ignore="MissingConstraints" />
+  <Button
+    android:id="@+id/game_button_end_lap"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:text="Terminer le tour"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="341dp"
+    tools:ignore="MissingConstraints" />
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".GameActivity"
+    android:orientation="vertical"
+    android:id="@+id/option_parent_vertical_layout_3">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_unplayable_layout_1">
+      <TextView
+        android:id="@+id/game_name_unplayable_dice1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 1:"
+        tools:ignore="MissingConstraints" />
+      <Button
+        android:id="@+id/game_unplayable_dice1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_unplayable_layout_2">
+      <TextView
+        android:id="@+id/game_name_unplayable_dice_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 2:"
+        tools:ignore="MissingConstraints" />
+      <Button
+        android:id="@+id/game_unplayable_dice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_unplayable_layout_3">
+      <TextView
+        android:id="@+id/game_name_unplayable_dice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 3:"
+        tools:ignore="MissingConstraints" />
+      <Button
+        android:id="@+id/game_unplayable_dice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_unplayable_layout_4">
+      <TextView
+        android:id="@+id/game_name_unplayable_dice4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 4:"
+        tools:ignore="MissingConstraints" />
+      <Button
+        android:id="@+id/game_unplayable_dice4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".GameActivity"
+      android:orientation="horizontal"
+      android:id="@+id/option_parent_horizontal_unplayable_layout_5">
+      <TextView
+        android:id="@+id/game_name_unplayable_dice5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="dé numéro 5:"
+        tools:ignore="MissingConstrains" />
+      <Button
+        android:id="@+id/game_unplayable_dice5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="1"
+        tools:ignore="MissingConstraints" />
+    </LinearLayout>
+  </LinearLayout>
+
+</LinearLayout>
