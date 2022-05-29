@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".OptionActivity"
+  android:orientation="vertical"
+  android:id="@+id/summary_parent_layout">
+
+  <TextView
+    android:id="@+id/summary_textView_greeting"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="8dp"
+    android:text="Bienvenue dans les options de Zloutch"
+    tools:layout_editor_absoluteX="125dp"
+    tools:layout_editor_absoluteY="16dp"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/summary_textView_player_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <TextView
+    android:id="@+id/summary_textView_player_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <TextView
+    android:id="@+id/summary_textView_player_3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <TextView
+    android:id="@+id/summary_textView_player_4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <TextView
+    android:id="@+id/summary_textView_player_5"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <TextView
+    android:id="@+id/summary_textView_player_6"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="149dp" />
+  <Button
+    android:id="@+id/summary_button_return"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:text="Retourner à la page d'acceuil"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="341dp"
+    tools:ignore="MissingConstraints" />
+
+
+</LinearLayout>

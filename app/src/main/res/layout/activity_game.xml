@@ -167,7 +167,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    android:text="Garder les 1 et les 5"
+    android:text="Garder les 1, les 5 et les triples"
     tools:layout_editor_absoluteX="-1dp"
     tools:layout_editor_absoluteY="341dp"
     tools:ignore="MissingConstraints" />

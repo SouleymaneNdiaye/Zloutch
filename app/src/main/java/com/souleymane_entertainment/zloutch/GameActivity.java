@@ -1,5 +1,7 @@
 package com.souleymane_entertainment.zloutch;
 
+import static com.souleymane_entertainment.zloutch.OptionActivity.OPTION_FOR_GAME;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,12 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.souleymane_entertainment.zloutch.model.Dice;
 import com.souleymane_entertainment.zloutch.model.Game;
 import com.souleymane_entertainment.zloutch.model.Option;
 import com.souleymane_entertainment.zloutch.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
@@ -93,7 +98,7 @@ public class GameActivity extends AppCompatActivity {
       game.playableDice5 = new Dice();
 
       Intent intent = getIntent();
-      game.option = (Option)intent.getSerializableExtra(OptionActivity.OPTION_FOR_GAME);
+      game.option = (Option)intent.getSerializableExtra(OPTION_FOR_GAME);
       Log.d("Option number player",Integer.toString(game.option.getNumberOfPlayer()));
 
       gameButtonOption.setOnClickListener(new View.OnClickListener() {
@@ -114,25 +119,233 @@ public class GameActivity extends AppCompatActivity {
 
     updateCurrentUser();
     updatePlayableDice();
+    updateScoreText();
     throwButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        updatePlayableDice();
+        if(thereIsNoFiveOrOne()){
+          updatePlayableDice();
+          setZloutch();
+        }
+        else{
+          makeKeepFiveAndOneToast();
+        }
       }
     });
     keepButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
+        keepTriplet();
         keepFivesAndOnes();
         updateScoreText();
+        releaseDiceIfNecessary();
+        if(game.option.currentUser.getTotalScore() + game.option.currentUser.getTurnScore()>=5000){
+          updateTotalScore();
+          Intent gameActivityIntent = new Intent(GameActivity.this, SummaryActivity.class);
+          gameActivityIntent.putExtra(OPTION_FOR_GAME,game.option);
+          startActivity(gameActivityIntent);
+        }
       }
     });
     endLapButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        endLap();
+        if(game.option!=null && game.option.currentUser!=null && game.option.currentUser.hasVerifiedLapScore()){
+          endLap();
+        }
+        else{
+          makeUnverifiedLapScoreToast();
+        }
       }
     });
+  }
+
+  private void makeUnverifiedLapScoreToast() {
+    Toast.makeText(this,"Vous ne pouvez pas finir le tour car votre score n'est pas un multiple de 100 ou celui ci est inférieur à 200!",Toast.LENGTH_LONG).show();
+
+  }
+
+  private void keepTriplet() {
+    if(gameTriplet()!=null && gameTripletIsAvailable()){
+      int suppress = 0 ;
+      Integer diceValueView1 = Integer.parseInt(playableDice1.getText().toString());
+      Integer diceValueView2 = Integer.parseInt(playableDice2.getText().toString());
+      Integer diceValueView3 = Integer.parseInt(playableDice3.getText().toString());
+      Integer diceValueView4 = Integer.parseInt(playableDice4.getText().toString());
+      Integer diceValueView5 = Integer.parseInt(playableDice5.getText().toString());
+
+      if(diceValueView1.intValue()==gameTriplet().intValue() && game.playableDice1.isAvailable()) {
+        suppress = suppress + 1;
+        game.playableDice1.setValue(diceValueView1);
+        game.playableDice1.setAvailable(false);
+        linearLayoutPlayableDice1.setVisibility(View.GONE);
+        linearLayoutUnplayableDice1.setVisibility(View.VISIBLE);
+        unplayableDice1.setText(Integer.toString(diceValueView1));
+      }
+      if(diceValueView2.intValue() == gameTriplet().intValue() && game.playableDice2.isAvailable()) {
+        suppress = suppress + 1;
+        game.playableDice2.setValue(diceValueView1);
+        game.playableDice2.setAvailable(false);
+        linearLayoutPlayableDice2.setVisibility(View.GONE);
+        linearLayoutUnplayableDice2.setVisibility(View.VISIBLE);
+        unplayableDice2.setText(Integer.toString(diceValueView2));
+      }
+      if(diceValueView3.intValue() == gameTriplet().intValue() && game.playableDice3.isAvailable()) {
+        suppress = suppress + 1;
+        game.playableDice3.setValue(diceValueView1);
+        game.playableDice3.setAvailable(false);
+        linearLayoutPlayableDice3.setVisibility(View.GONE);
+        linearLayoutUnplayableDice3.setVisibility(View.VISIBLE);
+        unplayableDice3.setText(Integer.toString(diceValueView3));
+      }
+      if(diceValueView4.intValue() == gameTriplet().intValue() && game.playableDice4.isAvailable() && suppress<3) {
+        suppress = suppress + 1;
+        game.playableDice4.setValue(diceValueView1);
+        game.playableDice4.setAvailable(false);
+        linearLayoutPlayableDice4.setVisibility(View.GONE);
+        linearLayoutUnplayableDice4.setVisibility(View.VISIBLE);
+        unplayableDice4.setText(Integer.toString(diceValueView4));
+      }
+      if(diceValueView5.intValue() == gameTriplet().intValue() && game.playableDice5.isAvailable() && suppress<3) {
+        suppress = suppress + 1;
+        game.playableDice5.setValue(diceValueView1);
+        game.playableDice5.setAvailable(false);
+        linearLayoutPlayableDice5.setVisibility(View.GONE);
+        linearLayoutUnplayableDice5.setVisibility(View.VISIBLE);
+        unplayableDice5.setText(Integer.toString(diceValueView5));
+      }
+      if(suppress==3){
+        game.option.currentUser.addTripletLapScore(gameTriplet().intValue());
+      }
+
+    }
+  }
+
+
+  private Integer gameTriplet() {
+    Integer diceValueView1 = Integer.parseInt(playableDice1.getText().toString());
+    Integer diceValueView2 = Integer.parseInt(playableDice2.getText().toString());
+    Integer diceValueView3 = Integer.parseInt(playableDice3.getText().toString());
+    Integer diceValueView4 = Integer.parseInt(playableDice4.getText().toString());
+    Integer diceValueView5 = Integer.parseInt(playableDice5.getText().toString());
+
+    List<Integer> diceValueList = new ArrayList<>();
+    diceValueList.add(diceValueView1);
+    diceValueList.add(diceValueView2);
+    diceValueList.add(diceValueView3);
+    diceValueList.add(diceValueView4);
+    diceValueList.add(diceValueView5);
+
+    for(int i = 0; i< diceValueList.size(); i++){
+      for(int j = 0; j< diceValueList.size(); j++){
+        for(int k = 0; k< diceValueList.size(); k++){
+          if(diceValueList.get(i).intValue()==diceValueList.get(j).intValue() && diceValueList.get(j).intValue()==diceValueList.get(k).intValue()
+          && i!=j && j!=k && i!= k){
+            return diceValueList.get(i);
+          }
+        }
+      }
+    }
+
+    return null;
+  }
+
+
+
+  private void makeKeepFiveAndOneToast() {
+    Toast.makeText(this,"Gardez les 1 et les 5 pour continuer à jouer!",Toast.LENGTH_LONG).show();
+  }
+  private boolean thereIsNoFiveOrOne() {
+    if(((playableDice1.getText().toString().equals("1")||playableDice1.getText().toString().equals("5")
+    )&&(linearLayoutPlayableDice1.getVisibility() == View.VISIBLE))
+    ||((playableDice2.getText().toString().equals("1")||playableDice2.getText().toString().equals("5")
+    )&&(linearLayoutPlayableDice2.getVisibility() == View.VISIBLE))
+    ||((playableDice3.getText().toString().equals("1")||playableDice3.getText().toString().equals("5")
+    )&&(linearLayoutPlayableDice3.getVisibility() == View.VISIBLE))
+    ||((playableDice4.getText().toString().equals("1")||playableDice4.getText().toString().equals("5")
+    )&&(linearLayoutPlayableDice4.getVisibility() == View.VISIBLE))
+    ||((playableDice5.getText().toString().equals("1")||playableDice5.getText().toString().equals("5")
+    )&&(linearLayoutPlayableDice5.getVisibility() == View.VISIBLE))
+    ){
+      return false;
+    }
+    else return true;
+  }
+
+  private void releaseDiceIfNecessary() {
+    if(!game.playableDice1.isAvailable()
+      && !game.playableDice2.isAvailable()
+      && !game.playableDice3.isAvailable()
+      && !game.playableDice4.isAvailable()
+      && !game.playableDice5.isAvailable()){
+
+      updatePlayableAndUnplayableDice();
+      updatePlayableDice();
+    }
+  }
+
+  private void setZloutch() {
+    boolean noZloutch = false;
+    if(game.playableDice1.isAvailable()){
+      if(playableDice1.getText().toString().equals("1")||playableDice1.getText().toString().equals("5")){
+        noZloutch = true;
+      }
+    }
+    if(game.playableDice2.isAvailable()){
+      if(playableDice2.getText().toString().equals("1")||playableDice2.getText().toString().equals("5")){
+        noZloutch = true;
+      }
+    }
+    if(game.playableDice3.isAvailable()){
+      if(playableDice3.getText().toString().equals("1")||playableDice3.getText().toString().equals("5")){
+        noZloutch = true;
+      }
+    }
+    if(game.playableDice4.isAvailable()){
+      if(playableDice4.getText().toString().equals("1")||playableDice4.getText().toString().equals("5")){
+        noZloutch = true;
+      }
+    }
+    if(game.playableDice5.isAvailable()){
+      if(playableDice5.getText().toString().equals("1")||playableDice5.getText().toString().equals("5")){
+        noZloutch = true;
+      }
+    }
+    if(gameTriplet()!=null && gameTripletIsAvailable()){
+      noZloutch = true;
+    }
+    if(!noZloutch){
+      AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+      builder.setTitle("Zloutch")
+        .setMessage(setZloutchMessage())
+        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+          @Override
+          public void onClick(DialogInterface dialog, int which) {
+            builder.setCancelable(true);
+          }
+        })
+        .create()
+        .show();
+    }
+  }
+
+  private String setZloutchMessage() {
+    String message="";
+    User user = game.option.getUserByUsername(game.option.currentUser.getUsername());
+    updateCurrentUser();
+    user.setZloutch(user.getZloutch()+1);
+    updateScoreText();
+    updatePlayableAndUnplayableDice();
+    updatePlayableDice();
+    if(user.getZloutch()<3){
+      message = "Vous n'avez obtenu aucun 1, 5 ou triple sur cette main. Vous obtenez donc un Zloutch. Au tour de "+game.option.currentUser.getUsername()+" de jouer.";
+    }else{
+      message = "Vous n'avez obtenu aucun 1, 5 ou triple sur cette main. Cela fait trois zloutch vous perdez donc 200 points. Au tour de "+game.option.currentUser.getUsername()+" de jouer.";
+      user.addTotalScore(-200);
+      user.setZloutch(0);
+    }
+    return message;
   }
 
   private void endLap() {
@@ -163,11 +376,12 @@ public class GameActivity extends AppCompatActivity {
   private void updateCurrentUser() {
     String currentUsername = game.option.currentUser != null ? game.option.currentUser.getUsername():null;
     game.option.currentUser = getNextUser(currentUsername);
+    game.option.currentUser.setTurnScore(0);
     Log.d("Next User: ", game.option.currentUser.getUsername());
   }
 
   private void updateScoreText(){
-    gameTextViewWhoPlay.setText("A vous de jouer "+game.option.currentUser.getUsername()+ ", votre score pour le tours est de " + game.option.currentUser.getTurnScore());
+    gameTextViewWhoPlay.setText("A vous de jouer "+game.option.currentUser.getUsername()+ ", votre score pour le tour est de " + game.option.currentUser.getTurnScore());
 
   }
 
@@ -190,55 +404,88 @@ public class GameActivity extends AppCompatActivity {
   }
 
   private void keepFivesAndOnes() {
-    int diceValueView1 = Integer.parseInt(playableDice1.getText().toString());
-    int diceValueView2 = Integer.parseInt(playableDice2.getText().toString());
-    int diceValueView3 = Integer.parseInt(playableDice3.getText().toString());
-    int diceValueView4 = Integer.parseInt(playableDice4.getText().toString());
-    int diceValueView5 = Integer.parseInt(playableDice5.getText().toString());
-
-    if(diceValueView1 == 1 || diceValueView1 == 5) {
-      if(game.playableDice1.isAvailable()) game.option.currentUser.addLapScore(diceValueView1);
-      game.playableDice1.setValue(diceValueView1);
-      game.playableDice1.setAvailable(false);
-      linearLayoutPlayableDice1.setVisibility(View.GONE);
-      linearLayoutUnplayableDice1.setVisibility(View.VISIBLE);
-      unplayableDice1.setText(Integer.toString(diceValueView1));
-    }
-    if(diceValueView2 == 1 || diceValueView2 == 5) {
-      if(game.playableDice2.isAvailable()) game.option.currentUser.addLapScore(diceValueView2);
-      game.playableDice2.setValue(diceValueView2);
-      game.playableDice2.setAvailable(false);
-      linearLayoutPlayableDice2.setVisibility(View.GONE);
-      linearLayoutUnplayableDice2.setVisibility(View.VISIBLE);
-      unplayableDice2.setText(Integer.toString(diceValueView2));
-    }
-    if(diceValueView3 == 1 || diceValueView3 == 5) {
-      if(game.playableDice3.isAvailable()) game.option.currentUser.addLapScore(diceValueView3);
-      game.playableDice3.setValue(diceValueView3);
-      game.playableDice3.setAvailable(false);
-      linearLayoutPlayableDice3.setVisibility(View.GONE);
-      linearLayoutUnplayableDice3.setVisibility(View.VISIBLE);
-      unplayableDice3.setText(Integer.toString(diceValueView3));
-    }
-    if(diceValueView4 == 1 || diceValueView4 == 5) {
-      if(game.playableDice4.isAvailable()) game.option.currentUser.addLapScore(diceValueView4);
-      game.playableDice4.setValue(diceValueView4);
-      game.playableDice4.setAvailable(false);
-      linearLayoutPlayableDice4.setVisibility(View.GONE);
-      linearLayoutUnplayableDice4.setVisibility(View.VISIBLE);
-      unplayableDice4.setText(Integer.toString(diceValueView4));
-    }
-    if(diceValueView5 == 1 || diceValueView5 == 5) {
-      if(game.playableDice5.isAvailable()) game.option.currentUser.addLapScore(diceValueView5);
-      game.playableDice5.setValue(diceValueView5);
-      game.playableDice5.setAvailable(false);
-      linearLayoutPlayableDice5.setVisibility(View.GONE);
-      linearLayoutUnplayableDice5.setVisibility(View.VISIBLE);
-      unplayableDice5.setText(Integer.toString(diceValueView5));
+    Integer diceValueView1 = Integer.parseInt(playableDice1.getText().toString());
+    Integer diceValueView2 = Integer.parseInt(playableDice2.getText().toString());
+    Integer diceValueView3 = Integer.parseInt(playableDice3.getText().toString());
+    Integer diceValueView4 = Integer.parseInt(playableDice4.getText().toString());
+    Integer diceValueView5 = Integer.parseInt(playableDice5.getText().toString());
+    if(thereIsNoTripletOfFiveOrOne()){
+      if(diceValueView1 == 1 || diceValueView1 == 5) {
+        if(game.playableDice1.isAvailable()) game.option.currentUser.addLapScore(diceValueView1);
+        game.playableDice1.setValue(diceValueView1);
+        game.playableDice1.setAvailable(false);
+        linearLayoutPlayableDice1.setVisibility(View.GONE);
+        linearLayoutUnplayableDice1.setVisibility(View.VISIBLE);
+        unplayableDice1.setText(Integer.toString(diceValueView1));
+      }
+      if(diceValueView2 == 1 || diceValueView2 == 5) {
+        if(game.playableDice2.isAvailable()) game.option.currentUser.addLapScore(diceValueView2);
+        game.playableDice2.setValue(diceValueView2);
+        game.playableDice2.setAvailable(false);
+        linearLayoutPlayableDice2.setVisibility(View.GONE);
+        linearLayoutUnplayableDice2.setVisibility(View.VISIBLE);
+        unplayableDice2.setText(Integer.toString(diceValueView2));
+      }
+      if(diceValueView3 == 1 || diceValueView3 == 5) {
+        if(game.playableDice3.isAvailable()) game.option.currentUser.addLapScore(diceValueView3);
+        game.playableDice3.setValue(diceValueView3);
+        game.playableDice3.setAvailable(false);
+        linearLayoutPlayableDice3.setVisibility(View.GONE);
+        linearLayoutUnplayableDice3.setVisibility(View.VISIBLE);
+        unplayableDice3.setText(Integer.toString(diceValueView3));
+      }
+      if(diceValueView4 == 1 || diceValueView4 == 5) {
+        if(game.playableDice4.isAvailable()) game.option.currentUser.addLapScore(diceValueView4);
+        game.playableDice4.setValue(diceValueView4);
+        game.playableDice4.setAvailable(false);
+        linearLayoutPlayableDice4.setVisibility(View.GONE);
+        linearLayoutUnplayableDice4.setVisibility(View.VISIBLE);
+        unplayableDice4.setText(Integer.toString(diceValueView4));
+      }
+      if(diceValueView5 == 1 || diceValueView5 == 5) {
+        if(game.playableDice5.isAvailable()) game.option.currentUser.addLapScore(diceValueView5);
+        game.playableDice5.setValue(diceValueView5);
+        game.playableDice5.setAvailable(false);
+        linearLayoutPlayableDice5.setVisibility(View.GONE);
+        linearLayoutUnplayableDice5.setVisibility(View.VISIBLE);
+        unplayableDice5.setText(Integer.toString(diceValueView5));
+      }
     }
   }
 
+  private boolean thereIsNoTripletOfFiveOrOne() {
+    if(gameTriplet()!=null && (gameTriplet().intValue()==1 || gameTriplet() == 5) && gameTripletIsAvailable()){
+      return false;
+    }else return true;
+  }
+
+  private boolean gameTripletIsAvailable() {
+    int numberOfDiceTripletAvailable=0;
+    if(gameTriplet()!=null && game.playableDice1.isAvailable()
+      && game.playableDice1.getValue()==gameTriplet().intValue()){
+      numberOfDiceTripletAvailable = numberOfDiceTripletAvailable +1;
+    }
+    if(gameTriplet()!=null && game.playableDice2.isAvailable()
+      && game.playableDice2.getValue()==gameTriplet().intValue()){
+      numberOfDiceTripletAvailable = numberOfDiceTripletAvailable +1;
+    }
+    if(gameTriplet()!=null && game.playableDice3.isAvailable()
+      && game.playableDice3.getValue()==gameTriplet().intValue()){
+      numberOfDiceTripletAvailable = numberOfDiceTripletAvailable +1;
+    }
+    if(gameTriplet()!=null && game.playableDice4.isAvailable()
+      && game.playableDice4.getValue()==gameTriplet().intValue()){
+      numberOfDiceTripletAvailable = numberOfDiceTripletAvailable +1;
+    }
+    if(gameTriplet()!=null && game.playableDice5.isAvailable()
+      && game.playableDice5.getValue()==gameTriplet().intValue()){
+      numberOfDiceTripletAvailable = numberOfDiceTripletAvailable +1;
+    }
+    return numberOfDiceTripletAvailable>=3;
+  }
+
   private void updatePlayableDice() {
+
     if(game.playableDice1.isAvailable()){
       Random rand1 = new Random();
       int randomNum1 = 1 + rand1.nextInt(6);
@@ -315,10 +562,10 @@ public class GameActivity extends AppCompatActivity {
       int i = 0;
       for(User user: game.option.userList){
         if(i>0) {
-          message = "\r" + message + user.getUsername() + ": " + user.getTotalScore() + " points ";
+          message = message + "\n" + user.getUsername() + ": " + user.getTotalScore() + " points et "+ user.getZloutch() +" zloutch";
         }
         else{
-          message = message + user.getUsername() + ": "+ user.getTotalScore()+" points ";
+          message = message + user.getUsername() + ": "+ user.getTotalScore()+" points et "+ user.getZloutch() +" zloutch ";
         }
         i++;
       }
