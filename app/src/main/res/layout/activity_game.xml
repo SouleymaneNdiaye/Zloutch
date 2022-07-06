@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   tools:context=".GameActivity"
   android:orientation="vertical"
   android:id="@+id/option_parent_layout">
@@ -67,7 +67,48 @@
       android:padding="8dp"
       android:text="1"
       tools:ignore="MissingConstraints" />
+
+      <ImageView
+        android:id="@+id/dice1PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice1PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice1PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice1PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice1PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice1PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
+
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -86,8 +127,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="1"
+        android:text="2"
         tools:ignore="MissingConstraints" />
+      <ImageView
+        android:id="@+id/dice2PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice2PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice2PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice2PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice2PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice2PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
     <LinearLayout
       android:layout_width="match_parent"
@@ -107,8 +187,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="1"
+        android:text="3"
         tools:ignore="MissingConstraints" />
+
+      <ImageView
+        android:id="@+id/dice3PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice3PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice3PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice3PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice3PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice3PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
     <LinearLayout
       android:layout_width="match_parent"
@@ -128,8 +248,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="1"
+        android:text="4"
         tools:ignore="MissingConstraints" />
+
+      <ImageView
+        android:id="@+id/dice4PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice4PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice4PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice4PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice4PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice4PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
     <LinearLayout
       android:layout_width="match_parent"
@@ -149,8 +309,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="1"
+        android:text="5"
         tools:ignore="MissingConstraints" />
+
+      <ImageView
+        android:id="@+id/dice5PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice5PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice5PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice5PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/dice5PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/dice5PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
   </LinearLayout>
   <Button
@@ -206,6 +406,46 @@
         android:padding="8dp"
         android:text="1"
         tools:ignore="MissingConstraints" />
+
+      <ImageView
+        android:id="@+id/unplayableDice1PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice1PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice1PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice1PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice1PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice1PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
     <LinearLayout
       android:layout_width="match_parent"
@@ -225,8 +465,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="1"
+        android:text="2"
         tools:ignore="MissingConstraints" />
+
+      <ImageView
+        android:id="@+id/unplayableDice2PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice2PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice2PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice2PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice2PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice2PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
     <LinearLayout
       android:layout_width="match_parent"
@@ -246,8 +526,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="1"
+        android:text="3"
         tools:ignore="MissingConstraints" />
+
+
+      <ImageView
+        android:id="@+id/unplayableDice3PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice3PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice3PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice3PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice3PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice3PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
     <LinearLayout
       android:layout_width="match_parent"
@@ -267,8 +588,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="1"
+        android:text="4"
         tools:ignore="MissingConstraints" />
+
+      <ImageView
+        android:id="@+id/unplayableDice4PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice4PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice4PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice4PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice4PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice4PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
     </LinearLayout>
     <LinearLayout
       android:layout_width="match_parent"
@@ -288,8 +649,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="1"
+        android:text="5"
         tools:ignore="MissingConstraints" />
+
+      <ImageView
+        android:id="@+id/unplayableDice5PictureDice1"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice1"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice5PictureDice2"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice2"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice5PictureDice3"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice3"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice5PictureDice4"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice4"
+        ></ImageView>
+      <ImageView
+        android:id="@+id/unplayableDice5PictureDice5"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice5"
+        ></ImageView>
+
+      <ImageView
+        android:id="@+id/unplayableDice5PictureDice6"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        app:srcCompat="@drawable/dice6"
+        ></ImageView>
+
     </LinearLayout>
   </LinearLayout>
 
