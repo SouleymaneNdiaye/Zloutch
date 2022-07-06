@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,17 +31,17 @@ public class GameActivity extends AppCompatActivity {
   private TextView gameTextViewWhoPlay;
   private Button gameButtonOption;
 
-  private LinearLayout linearLayoutUnplayableDice1;
-  private LinearLayout linearLayoutUnplayableDice2;
-  private LinearLayout linearLayoutUnplayableDice3;
-  private LinearLayout linearLayoutUnplayableDice4;
-  private LinearLayout linearLayoutUnplayableDice5;
+  private RelativeLayout linearLayoutUnplayableDice1;
+  private RelativeLayout linearLayoutUnplayableDice2;
+  private RelativeLayout linearLayoutUnplayableDice3;
+  private RelativeLayout linearLayoutUnplayableDice4;
+  private RelativeLayout linearLayoutUnplayableDice5;
 
-  private LinearLayout linearLayoutPlayableDice1;
-  private LinearLayout linearLayoutPlayableDice2;
-  private LinearLayout linearLayoutPlayableDice3;
-  private LinearLayout linearLayoutPlayableDice4;
-  private LinearLayout linearLayoutPlayableDice5;
+  private RelativeLayout linearLayoutPlayableDice1;
+  private RelativeLayout linearLayoutPlayableDice2;
+  private RelativeLayout linearLayoutPlayableDice3;
+  private RelativeLayout linearLayoutPlayableDice4;
+  private RelativeLayout linearLayoutPlayableDice5;
 
   private Button unplayableDice1;
   private Button unplayableDice2;
@@ -267,6 +268,7 @@ public class GameActivity extends AppCompatActivity {
   protected void onResume() {
     super.onResume();
 
+    hideButtonDice();
     updateCurrentUser();
     updatePlayableDice();
     updateScoreText();
@@ -290,6 +292,7 @@ public class GameActivity extends AppCompatActivity {
         updateUnplayableDicePicture();
         updateScoreText();
         releaseDiceIfNecessary();
+        hideButtonDice();
         if(game.option.currentUser.getTotalScore() + game.option.currentUser.getTurnScore()>=5000){
           updateTotalScore();
           Intent gameActivityIntent = new Intent(GameActivity.this, SummaryActivity.class);
@@ -303,6 +306,7 @@ public class GameActivity extends AppCompatActivity {
       public void onClick(View view) {
         if(game.option!=null && game.option.currentUser!=null && game.option.currentUser.hasVerifiedLapScore()){
           endLap();
+          hideButtonDice();
         }
         else{
           makeUnverifiedLapScoreToast();
@@ -311,6 +315,18 @@ public class GameActivity extends AppCompatActivity {
     });
   }
 
+  private void hideButtonDice() {
+    playableDice1.setVisibility(View.GONE);
+    playableDice2.setVisibility(View.GONE);
+    playableDice3.setVisibility(View.GONE);
+    playableDice4.setVisibility(View.GONE);
+    playableDice5.setVisibility(View.GONE);
+    unplayableDice1.setVisibility(View.GONE);
+    unplayableDice2.setVisibility(View.GONE);
+    unplayableDice3.setVisibility(View.GONE);
+    unplayableDice4.setVisibility(View.GONE);
+    unplayableDice5.setVisibility(View.GONE);
+  }
 
 
   private void makeUnverifiedLapScoreToast() {

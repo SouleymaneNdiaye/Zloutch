@@ -34,7 +34,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
-    android:text="Données du jeux"
+    android:text="Score"
     tools:layout_editor_absoluteX="-1dp"
     tools:layout_editor_absoluteY="341dp"
     tools:ignore="MissingConstraints" />
@@ -47,11 +47,12 @@
     tools:context=".GameActivity"
     android:orientation="vertical"
     android:id="@+id/option_parent_vertical_layout_2">
-    <LinearLayout
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      tools:context=".GameActivity"
+      android:layout_gravity="center"
       android:orientation="horizontal"
+
       android:id="@+id/option_parent_horizontal_playable_layout_1">
       <TextView
         android:id="@+id/game_name_playable_dice1"
@@ -59,12 +60,15 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 1:"
+
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
     <Button
       android:id="@+id/game_playable_dice1"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:padding="8dp"
+      android:layout_marginLeft="92dp"
       android:text="1"
       tools:ignore="MissingConstraints" />
 
@@ -72,6 +76,8 @@
         android:id="@+id/dice1PictureDice1"
         android:layout_width="44dp"
         android:layout_height="44dp"
+
+        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/dice1"
         ></ImageView>
 
@@ -80,12 +86,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice1PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -93,12 +101,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice1PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -106,12 +116,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_gravity="center"
       tools:context=".GameActivity"
       android:orientation="horizontal"
       android:id="@+id/option_parent_horizontal_playable_layout_2">
@@ -121,6 +133,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 2:"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
       <Button
         android:id="@+id/game_playable_dice2"
@@ -128,12 +141,15 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="2"
+        android:layout_marginLeft="92dp"
         tools:ignore="MissingConstraints" />
       <ImageView
         android:id="@+id/dice2PictureDice1"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -141,12 +157,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice2PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -154,12 +172,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice2PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -167,13 +187,15 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:context=".GameActivity"
       android:orientation="horizontal"
+      android:layout_gravity="center"
       android:id="@+id/option_parent_horizontal_playable_layout_3">
       <TextView
         android:id="@+id/game_name_playable_dice3"
@@ -181,6 +203,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 3:"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
       <Button
         android:id="@+id/game_playable_dice3"
@@ -188,6 +211,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="3"
+        android:layout_marginLeft="92dp"
         tools:ignore="MissingConstraints" />
 
       <ImageView
@@ -195,6 +219,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -202,12 +227,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice3PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -215,12 +242,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice3PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -228,13 +257,15 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:context=".GameActivity"
       android:orientation="horizontal"
+      android:layout_gravity="center"
       android:id="@+id/option_parent_horizontal_playable_layout_4">
       <TextView
         android:id="@+id/game_name_playable_dice4"
@@ -242,6 +273,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 4:"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
       <Button
         android:id="@+id/game_playable_dice4"
@@ -249,6 +281,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="4"
+        android:layout_marginLeft="92dp"
         tools:ignore="MissingConstraints" />
 
       <ImageView
@@ -256,6 +289,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -263,12 +297,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice4PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -276,12 +312,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice4PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -289,13 +327,15 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:context=".GameActivity"
       android:orientation="horizontal"
+      android:layout_gravity="center"
       android:id="@+id/option_parent_horizontal_playable_layout_5">
       <TextView
         android:id="@+id/game_name_playable_dice5"
@@ -303,6 +343,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 5:"
+        android:textStyle="bold"
         tools:ignore="MissingConstrains" />
       <Button
         android:id="@+id/game_playable_dice5"
@@ -310,6 +351,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="5"
+        android:layout_marginLeft="92dp"
         tools:ignore="MissingConstraints" />
 
       <ImageView
@@ -317,6 +359,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -324,12 +367,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice5PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+      android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -337,12 +382,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/dice5PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -350,8 +397,9 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
+    </RelativeLayout>
   </LinearLayout>
   <Button
     android:id="@+id/game_button_throw"
@@ -386,11 +434,12 @@
     tools:context=".GameActivity"
     android:orientation="vertical"
     android:id="@+id/option_parent_vertical_layout_3">
-    <LinearLayout
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:context=".GameActivity"
       android:orientation="horizontal"
+      android:layout_gravity="center"
       android:id="@+id/option_parent_horizontal_unplayable_layout_1">
       <TextView
         android:id="@+id/game_name_unplayable_dice1"
@@ -398,12 +447,14 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 1:"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
       <Button
         android:id="@+id/game_unplayable_dice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:layout_marginLeft="92dp"
         android:text="1"
         tools:ignore="MissingConstraints" />
 
@@ -412,6 +463,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -419,12 +471,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice1PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -432,12 +486,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice1PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -445,13 +501,15 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:context=".GameActivity"
       android:orientation="horizontal"
+      android:layout_gravity="center"
       android:id="@+id/option_parent_horizontal_unplayable_layout_2">
       <TextView
         android:id="@+id/game_name_unplayable_dice_2"
@@ -459,6 +517,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 2:"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
       <Button
         android:id="@+id/game_unplayable_dice2"
@@ -466,6 +525,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="2"
+        android:layout_marginLeft="92dp"
         tools:ignore="MissingConstraints" />
 
       <ImageView
@@ -473,6 +533,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -480,12 +541,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice2PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -493,12 +556,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice2PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -506,13 +571,15 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:context=".GameActivity"
       android:orientation="horizontal"
+      android:layout_gravity="center"
       android:id="@+id/option_parent_horizontal_unplayable_layout_3">
       <TextView
         android:id="@+id/game_name_unplayable_dice3"
@@ -520,6 +587,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 3:"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
       <Button
         android:id="@+id/game_unplayable_dice3"
@@ -527,6 +595,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="3"
+        android:layout_marginLeft="92dp"
         tools:ignore="MissingConstraints" />
 
 
@@ -535,6 +604,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -542,12 +612,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice3PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -555,12 +627,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice3PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -568,13 +642,15 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:context=".GameActivity"
       android:orientation="horizontal"
+      android:layout_gravity="center"
       android:id="@+id/option_parent_horizontal_unplayable_layout_4">
       <TextView
         android:id="@+id/game_name_unplayable_dice4"
@@ -582,6 +658,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 4:"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
       <Button
         android:id="@+id/game_unplayable_dice4"
@@ -589,6 +666,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="4"
+        android:layout_marginLeft="92dp"
         tools:ignore="MissingConstraints" />
 
       <ImageView
@@ -596,6 +674,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -603,12 +682,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice4PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -616,12 +697,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice4PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -629,13 +712,15 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:context=".GameActivity"
       android:orientation="horizontal"
+      android:layout_gravity="center"
       android:id="@+id/option_parent_horizontal_unplayable_layout_5">
       <TextView
         android:id="@+id/game_name_unplayable_dice5"
@@ -643,6 +728,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="dé numéro 5:"
+        android:textStyle="bold"
         tools:ignore="MissingConstrains" />
       <Button
         android:id="@+id/game_unplayable_dice5"
@@ -650,6 +736,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="5"
+        android:layout_marginLeft="92dp"
         tools:ignore="MissingConstraints" />
 
       <ImageView
@@ -657,6 +744,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice1"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -664,12 +752,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice2"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice5PictureDice3"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice3"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -677,12 +767,14 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice4"
+        android:layout_centerHorizontal="true"
         ></ImageView>
       <ImageView
         android:id="@+id/unplayableDice5PictureDice5"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice5"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
       <ImageView
@@ -690,9 +782,10 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:srcCompat="@drawable/dice6"
+        android:layout_centerHorizontal="true"
         ></ImageView>
 
-    </LinearLayout>
+    </RelativeLayout>
   </LinearLayout>
 
 </LinearLayout>
